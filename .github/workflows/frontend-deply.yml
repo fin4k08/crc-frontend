@@ -19,13 +19,13 @@ jobs:
 
     - name: Upload to Azure Storage
       uses: azure/CLI@v1
-
-    - name: Deploy to Static Website
-      run: |
-        az login --service-principal -u ${{ secrets.AZURE_CREDENTIALS }}
-        az storage blob upload-batch \
-          --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-          --destination \$web \
-          --source ./ \
-          --overwrite \
-          --auth-mode key
+      with:
+        azcliversion: latest
+        inlinescript: |
+          az login --service-principal -u ${{ secrets.AZURE_CREDENTIALS }}
+          az storage blob upload-batch \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+            --destination \$web \
+            --source ./ \
+            --overwrite \
+            --auth-mode key
