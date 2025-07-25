@@ -32,4 +32,4 @@ jobs:
             --destination \$web \
             --source ./ \
             --overwrite \
-            --auth-mode key
+            --auth-mode login
