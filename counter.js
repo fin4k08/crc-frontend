@@ -1,4 +1,4 @@
-fetch("https://crc-func-dev.azurewebsites.net/api/GetVisitorCount")
+fetch("https://crc-func-dev.azurewebsites.net/api/GetVisitorCounter")
   .then(response => response.json())
   .then(data => {
     document.getElementById("visitor-count").innerText = data.count;
